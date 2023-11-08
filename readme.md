@@ -1,31 +1,46 @@
-## GoIT Node.js Course Template Homework
+# Сontacts backend
 
-Виконайте форк цього репозиторію для виконання домашніх завдань (2-6)
-Форк створить репозиторій на вашому http://github.com
+Backend for work with contacts.
 
-Додайте ментора до колаборації
+- The application supports login and registration. Authorization uses JWT (using localstorage).
+- The application supports verification of email by Elasticemail.
+- Implemented creation, editing and deletion of contacts. Implemented editing status of contact.
+- The application uses a database MongoDB.
 
-Для кожної домашньої роботи створюйте свою гілку.
+## Technologies:
 
-- hw02
-- hw03
-- hw04
-- hw05
-- hw06
+- Express
+- MongoDB
+- Mongoose
+- Joi
+- Morgan
+- Multer
+- Jsonwebtoken
+- Gravatar
 
-Кожна нова гілка для др повинна робитися з master
+## Endpoints
 
-Після того, як ви закінчили виконувати домашнє завдання у своїй гілці, необхідно зробити пулл-реквест (PR). Потім додати ментора для рев'ю коду. Тільки після того, як ментор заапрувить PR, ви можете виконати мердж гілки з домашнім завданням у майстер.
+/users  
+- /register POST
+- /verify/:verificationToken GET Parameter: verification token
+- /verify POST
+- /login POST
+- /current GET
+- /logout POST
+- /:id/subscription PATCH Parameter: id of user
+- /avatars PATCH
 
-Уважно читайте коментарі ментора. Виправте зауваження та зробіть коміт у гілці з домашнім завданням. Зміни підтягнуться у PR автоматично після того, як ви відправите коміт з виправленнями на github
-Після виправлення знову додайте ментора на рев'ю коду.
+/api/contacts
+- / GET
+- /:id GET  Parameter: id of contact
+- / POST  
+- /:id DELETE  Parameter: id of contact
+- /:id PUT  Parameter: id of contact
+- /:id/favorite PATCH  Parameter: id of contact
 
-- При здачі домашньої роботи є посилання на PR
-- JS-код чистий та зрозумілий, для форматування використовується Prettier
+### Commands:
 
-### Команди:
-
-- `npm start` &mdash; старт сервера в режимі production
-- `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
-- `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
-- `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+- `npm start` &mdash; start server in production mode
+- `npm run start:dev` &mdash; start server in development mode
+- `npm run lint` &mdash; run a code check run with eslint, must run before each PR and fix all linter errors
+- `npm lint:fix` &mdash; the same linter check, but with automatic fixes for simple errors
